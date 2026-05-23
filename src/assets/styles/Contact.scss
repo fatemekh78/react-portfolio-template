@@ -18,19 +18,29 @@
     color: white;
   }
 
-  /* FIX: Apply background and text color properly to Material-UI text fields */
+  /* Target the Outlined Input Container Box */
   .MuiOutlinedInput-root {
-    background-color: white !important; /* Gives the input container a solid white background */
+    background-color: white !important; /* Sets the box background to solid white */
     
     input, textarea {
-      color: #050f0b !important; /* Forces the typed text to be dark black so it is highly visible! */
-      -webkit-text-fill-color: #050f0b !important; /* Fixes browser autofill overrides */
+      color: #050f0b !important; /* Forces typed letters to be dark black */
+      -webkit-text-fill-color: #050f0b !important; 
+      position: relative;
+      z-index: 5 !important; /* Pulls the text to the absolute front layer */
+    }
+
+    /* CRITICAL FIX: Forces the overlaying fieldset border box to stay transparent */
+    fieldset {
+      background-color: transparent !important; 
+      background: transparent !important;
+      z-index: 1 !important; /* Pushes the border layer behind the text */
     }
   }
 
-  /* Optional: Ensures the floating labels remain readable against the white box */
+  /* Keeps placeholder labels clearly readable */
   .MuiInputLabel-root {
     color: #555555 !important;
+    z-index: 10 !important; /* Keeps labels on top */
     &.Mui-focused {
       color: #5000ca !important;
     }
