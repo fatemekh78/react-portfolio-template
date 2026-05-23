@@ -55,6 +55,13 @@ function Contact() {
         <div className="contact_wrapper">
           <h1>Contact Me</h1>
           <p>Got a project waiting to be realized? Let's collaborate and make it happen!</p>
+          
+          {/* Added Direct Contact Info Here */}
+          <div style={{ marginBottom: '20px', fontSize: '1.1rem' }}>
+            <p><strong>Email:</strong> <a href="mailto:fatemekheirkhah85@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }}>fatemekheirkhah85@gmail.com</a></p>
+            <p><strong>Phone:</strong> <a href="tel:+3584573482097" style={{ color: 'inherit', textDecoration: 'none' }}>+3584573482097</a></p>
+          </div>
+
           <Box
             ref={form}
             component="form"
