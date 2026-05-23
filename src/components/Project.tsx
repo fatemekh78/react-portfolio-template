@@ -3,6 +3,7 @@ import mock01 from '../assets/images/mock01.png';
 import mock02 from '../assets/images/mock02.png';
 import mock03 from '../assets/images/mock03.png';
 import mock04 from '../assets/images/mock04.png';
+import mock05 from '../assets/images/mock05.png';
 
 import '../assets/styles/Project.scss';
 
@@ -31,10 +32,21 @@ function Project() {
                 <a href="https://github.com/fatemekh78/social-network" target="_blank" rel="noreferrer">
                     <h2>Social Network Platform</h2>
                 </a>
-                <p>Built a fast, full-stack social networking web application combining a high-performance backend written in Golang with a responsive frontend built in Vue.js. Managed structural local application storage using SQLite database management.</p>
+                <p>Built a fast, full-stack social networking web application combining a high-performance backend written in Golang with a responsive frontend built in Vue.js. Managed structural local application storage using SQLite database management and handled real-time notifications via WebSockets.</p>
             </div>
 
-            {/* Project 3: NLP Scrapper */}
+            {/* NEW Project 3: Real Time Forum */}
+            <div className="project">
+                <a href="https://github.com/fatemekh78/real-time-forum" target="_blank" rel="noreferrer">
+                    <img src={mock05} className="zoom" alt="real time forum mockup" width="100%"/>
+                </a>
+                <a href="https://github.com/fatemekh78/real-time-forum" target="_blank" rel="noreferrer">
+                    <h2>Real-Time Forum Engine</h2>
+                </a>
+                <p>Engineered a lightweight, high-concurrency web forum from scratch utilizing Golang and vanilla JavaScript. Leveraging WebSockets for instant private messaging, the system maximizes server efficiency by utilizing Go routines and native communication channels to manage thousands of concurrent connections safely.</p>
+            </div>
+
+            {/* Project 4: NLP Scrapper */}
             <div className="project">
                 <a href="https://github.com/fatemekh78/NLP-Scrapper" target="_blank" rel="noreferrer">
                     <img src={mock03} className="zoom" alt="NLP scrapper mockup" width="100%"/>
@@ -45,7 +57,7 @@ function Project() {
                 <p>Engineered an automated natural language processing pipeline in Python designed to scrape and transform raw RSS news feeds into structured risk intelligence data. Implemented Named Entity Recognition (NER), sentiment analysis, and built a custom scandal detection filter.</p>
             </div>
 
-            {/* Project 4: Matrix Factorization */}
+            {/* Project 5: Matrix Factorization */}
             <div className="project">
                 <a href="https://github.com/fatemekh78/Matrix-Factorization" target="_blank" rel="noreferrer">
                     <img src={mock04} className="zoom" alt="matrix factorization mockup" width="100%"/>
@@ -53,7 +65,7 @@ function Project() {
                 <a href="https://github.com/fatemekh78/Matrix-Factorization" target="_blank" rel="noreferrer">
                     <h2>Matrix Factorization RecEngine</h2>
                 </a>
-                <p>Developed a collaborative filtering recommendation system in Python to handle highly sparse datasets (MovieLens). Leveraged mathematical computing techniques like Singular Value Decomposition (SVD) and Bayesian Probabilistic Matrix Factorization (PMF) to optimize prediction accuracy.</p>
+                <p>Developed a collaborative filtering recommendation system in Python to handle highly sparse datasets (such as MovieLens). Leveraged mathematical computing techniques like Singular Value Decomposition (SVD) and Bayesian Probabilistic Matrix Factorization (PMF) to optimize prediction accuracy.</p>
             </div>
 
         </div>
