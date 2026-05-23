@@ -36,7 +36,6 @@ function Contact() {
         message: message
       };
 
-      // Pulling keys safely from environment variables
       const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID || '';
       const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || '';
       const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || '';
@@ -44,7 +43,6 @@ function Contact() {
       emailjs.send(serviceId, templateId, templateParams, publicKey).then(
         (response) => {
           console.log('SUCCESS!', response.status, response.text);
-          // Clear form on success
           setName('');
           setEmail('');
           setMessage('');
@@ -55,6 +53,21 @@ function Contact() {
           alert("Failed to send message. Please try again later.");
         },
       );
+    }
+  };
+
+  // Explicit safety styling to fix contrast issues across dark/light themes
+  const textFieldsStyles = {
+    "& .MuiInputBase-input": {
+      color: "inherit", // Forces the input text to match the template font color
+    },
+    "& .MuiInputLabel-root": {
+      color: "gray", // Keeps placeholder labels visible
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "rgba(128, 128, 128, 0.4)",
+      },
     }
   };
 
@@ -84,11 +97,10 @@ function Contact() {
                 label="Your Name"
                 placeholder="What's your name?"
                 value={name}
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
+                onChange={(e) => setName(e.target.value)}
                 error={nameError}
                 helperText={nameError ? "Please enter your name" : ""}
+                sx={textFieldsStyles}
               />
               <TextField
                 required
@@ -96,11 +108,10 @@ function Contact() {
                 label="Email / Phone"
                 placeholder="How can I reach you?"
                 value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
+                onChange={(e) => setEmail(e.target.value)}
                 error={emailError}
                 helperText={emailError ? "Please enter your email or phone number" : ""}
+                sx={textFieldsStyles}
               />
             </div>
             <TextField
@@ -112,11 +123,10 @@ function Contact() {
               rows={10}
               className="body-form"
               value={message}
-              onChange={(e) => {
-                setMessage(e.target.value);
-              }}
+              onChange={(e) => setMessage(e.target.value)}
               error={messageError}
               helperText={messageError ? "Please enter the message" : ""}
+              sx={textFieldsStyles}
             />
             <Button variant="contained" endIcon={<SendIcon />} onClick={sendEmail}>
               Send
